@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SPV Energy Trading LLC</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #07152b;
+      color: white;
+      line-height: 1.6;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    header {
+      background: linear-gradient(to right, #07152b, #0b1f3d);
+      padding: 30px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      backdrop-filter: blur(10px);
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .logo img {
+      width: 70px;
+      height: 70px;
+      object-fit: contain;
+    }
+
+    .logo h1 {
+      font-size: 28px;
+      font-weight: 800;
+    }
+
+    .gold {
+      color: #f5c542;
+    }
+
+    .hero {
+      padding: 120px 0;
+      background:
+        linear-gradient(rgba(7,21,43,0.8), rgba(7,21,43,0.9)),
+        url('https://images.unsplash.com/photo-1513828583688-c52646db42da?q=80&w=1800&auto=format&fit=crop') center/cover;
+    }
+
+    .hero-content {
+      max-width: 700px;
+    }
+
+    .hero h2 {
+      font-size: 68px;
+      line-height: 1.1;
+      margin-bottom: 25px;
+      font-weight: 800;
+    }
+
+    .hero p {
+      font-size: 20px;
+      color: #d4d8df;
+      margin-bottom: 40px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #f5c542;
+      color: #07152b;
+      padding: 16px 32px;
+      border-radius: 14px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: 0.3s;
+      margin-right: 15px;
+    }
+
+    .btn:hover {
+      background: #ffd65a;
+      transform: translateY(-2px);
+    }
+
+    section {
+      padding: 90px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .section-title span {
+      color: #f5c542;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .section-title h3 {
+      font-size: 48px;
+      margin-top: 10px;
+    }
+
+    .grid {
+      display: grid;
+      gap: 30px;
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+
+    .card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 24px;
+      overflow: hidden;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(245,197,66,0.4);
+    }
+
+    .card img {
+      width: 100%;
+      height: 230px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 30px;
+    }
+
+    .card-content h4 {
+      font-size: 26px;
+      margin-bottom: 15px;
+      color: #f5c542;
+    }
+
+    .services .card {
+      padding: 35px;
+    }
+
+    .services h4 {
+      margin-bottom: 15px;
+      color: #f5c542;
+      font-size: 24px;
+    }
+
+    .network {
+      background: #0b1f3d;
+    }
+
+    .contact-wrapper {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 40px;
+    }
+
+    .contact-box,
+    .form-box {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 24px;
+      padding: 40px;
+    }
+
+    .contact-item {
+      margin-bottom: 20px;
+    }
+
+    .contact-item strong {
+      display: block;
+      color: #f5c542;
+      margin-bottom: 5px;
+    }
+
+    form input,
+    form textarea {
+      width: 100%;
+      padding: 16px;
+      margin-bottom: 20px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: #091b36;
+      color: white;
+      font-size: 15px;
+    }
+
+    form button {
+      width: 100%;
+      padding: 18px;
+      border: none;
+      background: #f5c542;
+      color: #07152b;
+      border-radius: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    iframe {
+      width: 100%;
+      height: 450px;
+      border: none;
+      border-radius: 24px;
+      margin-top: 50px;
+    }
+
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding: 35px 0;
+      text-align: center;
+      color: #9aa5b8;
+    }
+
+    .whatsapp {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background: #25D366;
+      color: white;
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+      font-size: 34px;
+      z-index: 999;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    }
+
+    @media(max-width:768px){
+      .hero h2 {
+        font-size: 42px;
+      }
+
+      .section-title h3 {
+        font-size: 34px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<a class="whatsapp" href="https://wa.me/5521976930284" target="_blank">
+  💬
+</a>
+
+<header>
+  <div class="container">
+    <nav>
+      <div class="logo">
+        <img src="https://i.imgur.com/fYq4YxA.png" alt="SPV Energy Logo">
+        <h1>SPV <span class="gold">ENERGY</span></h1>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <h2>
+        Global Energy <span class="gold">Trading & Supply</span>
+      </h2>
+
+      <p>
+        SPV Energy Trading LLC specializes in petroleum derivatives,
+        base oils, refinery representation, oil & gas supply,
+        drilling solutions and international strategic trading.
+      </p>
+
+      <a href="#contact" class="btn">Contact Us</a>
+      <a href="#services" class="btn">Our Services</a>
+    </div>
+  </div>
+</section>
+
+<section id="services" class="services">
+  <div class="container">
+    <div class="section-title">
+      <span>Services</span>
+      <h3>International Energy Solutions</h3>
+    </div>
+
+    <div class="grid grid-3">
+      <div class="card">
+        <div class="card-content">
+          <h4>EN590 Diesel</h4>
+          <p>Commercial sourcing and international diesel supply operations.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-content">
+          <h4>Base Oils</h4>
+          <p>Group I, II and III base oil trading for lubricant manufacturers.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-content">
+          <h4>Oil & Gas Supply</h4>
+          <p>Technical equipment, industrial spare parts and operational support.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-content">
+          <h4>Drilling Solutions</h4>
+          <p>Support for drilling, casing and cementing operations.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-content">
+          <h4>Government Supply</h4>
+          <p>Electrical and electronic procurement support solutions.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-content">
+          <h4>Refinery Network</h4>
+          <p>Strategic refinery representation and supplier relationships.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-title">
+      <span>Base Oil Division</span>
+      <h3>Group I • II • III</h3>
+    </div>
+
+    <div class="grid grid-3">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?q=80&w=1200&auto=format&fit=crop" alt="Group I">
+        <div class="card-content">
+          <h4>Group I Base Oils</h4>
+          <p>Traditional solvent refined base oils for industrial and automotive applications.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1200&auto=format&fit=crop" alt="Group II">
+        <div class="card-content">
+          <h4>Group II Base Oils</h4>
+          <p>Hydroprocessed premium base oils with improved oxidation stability.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1473448912268-2022ce9509d8?q=80&w=1200&auto=format&fit=crop" alt="Group III">
+        <div class="card-content">
+          <h4>Group III Base Oils</h4>
+          <p>High-performance synthetic base oils for advanced lubricant technologies.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="network">
+  <div class="container">
+    <div class="section-title">
+      <span>Refinery & Supplier Network</span>
+      <h3>Global Strategic Connections</h3>
+    </div>
+
+    <div class="grid grid-3">
+      <div class="card services">
+        <div class="card-content">
+          <h4>Refinery Representation</h4>
+          <p>Structured supplier and refinery relationship development.</p>
+        </div>
+      </div>
+
+      <div class="card services">
+        <div class="card-content">
+          <h4>Verified Buyer Network</h4>
+          <p>International buyer relationships and commercial coordination.</p>
+        </div>
+      </div>
+
+      <div class="card services">
+        <div class="card-content">
+          <h4>Strategic Partnerships</h4>
+          <p>Long-term trading and supply cooperation opportunities.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <div class="section-title">
+      <span>Contact</span>
+      <h3>Let’s Build Strategic Partnerships</h3>
+    </div>
+
+    <div class="contact-wrapper">
+      <div class="contact-box">
+        <div class="contact-item">
+          <strong>Website</strong>
+          spvenergygroup.com
+        </div>
+
+        <div class="contact-item">
+          <strong>Email</strong>
+          contact@spvenergygroup.com
+        </div>
+
+        <div class="contact-item">
+          <strong>Phone / WhatsApp</strong>
+          +55 21 97693-0284
+        </div>
+      </div>
+
+      <div class="form-box">
+        <form>
+          <input type="text" placeholder="Company Name">
+          <input type="text" placeholder="Contact Name">
+          <input type="email" placeholder="Email Address">
+          <textarea rows="6" placeholder="Write your enquiry..."></textarea>
+          <button type="submit">Submit Enquiry</button>
+        </form>
+      </div>
+    </div>
+
+    <iframe
+      src="https://www.google.com/maps?q=Miami,Florida&output=embed"
+      loading="lazy">
+    </iframe>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    © 2026 SPV Energy Trading LLC • All Rights Reserved
+  </div>
+</footer>
+
+</body>
+</html>
